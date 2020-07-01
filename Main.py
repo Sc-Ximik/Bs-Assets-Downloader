@@ -12,6 +12,12 @@ from Packet.Reader import CoCMessageReader
 from Packet.Writer import Write
 from Packet.PreAuth import PreAuth
 
+if os.path.exists('config.json'):
+    with open('config.json', 'r') as f:
+        config = json.load(f)
+        server = config['server']
+        port = config['port']
+
 
 def recvall(sock, size):
     data = []
@@ -43,7 +49,7 @@ if __name__ == '__main__':
         sys.stdout.write("\x1b]2;Starting download\x07")
 
     s = socket.socket()
-    s.connect(('game.brawlstarsgame.com', 9339))
+    s.connect((server, int(port)))
     s.send(Write(PreAuth))
 
     header = s.recv(7)

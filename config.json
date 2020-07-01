@@ -1,4 +1,8 @@
 {
   "ThreadNumber": 4,
-  "DownloadPath": "Download"
+  "DownloadPath": "Download",
+  "major": 27,
+  "minor": 267,
+  "server": "game.brawlstarsgame.com",
+  "port": 9339
 }
